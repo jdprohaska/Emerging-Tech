@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Typescript</title>
+<script src="typescript.js"></script>
+<script src="confetti.js"></script>
+
+	<style>
+
+	
+		body {
+			height:100%;
+			background-repeat:no-repeat;
+			background-image: linear-gradient(lightblue,white);
+		}
+		
+		header h1, header h2, header h3 {
+			text-align:center;	
+		}
+	
+		#container	{
+			width:70%;
+			background-color:#80FFFF;
+			margin:auto;
+		}
+		
+		form	{
+			background-color:lightgray;
+			width:80%;
+			margin:auto;
+			padding-left:5px;	
+		}
+		
+		.navbar	{
+			display:flex;
+			justify-content:space-between;
+			align-items:center;	
+		}
+		 .navbar ul	{
+			list-style:none; 
+			margin-right:20px;
+		 }	
+		
+		.navbar-links	{
+			display:flex;
+			justify-content:space-between;
+			width:300px;	
+		}
+		
+		section {
+			box-sizing:border-box;	
+		}		
+		
+		.floatLeft	{
+			float:left;	
+			width:50%;
+			padding-right:20px;
+		}
+		
+		.clearFloat	{
+			clear:both;	
+		}
+		
+		footer p	{
+			text-align:center;	
+		}
+
+	</style>
+    
+
+</head>
+
+<body onload="myFunction()">
+
+	<!--My audio start-->
+	<audio id="myAudio">
+		<source src="pomp.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	  </audio>
+	  <script>
+		  let x = document.querySelector("#myAudio");
+		
+		function playAudio() {
+			x.play();
+		}
+	
+		function pauseAudio() {
+			x.pause();
+		}
+
+		function stopAudio() {
+			x.stop();
+		}
+	  </script>
+	<!--My audio end-->
+
+	<header>
+    	<h1>WDV495</h1>
+        <h2>Typescript</h2> 
+        <h3>Assignment: Typescript Conversion </h3>   
+	</header>
+
+
+	<div id="container">
+    
+
+	<nav class="navbar">
+        <a href="https://wwwd.dmacc.edu">DMACC</a>
+        <ul class="navbar-links">
+          <li class="navbar-item"><a href="#">Schedules</a></li>
+          <li class="navbar-item"><a href="#">Registration</a></li>
+          <li class="navbar-item"><a href="#">Programs</a></li>
+          <li class="navbar-item"><a href="#">Sign in</a></li>
+        </ul>
+    </nav>
+        
+	<section class="floatLeft">
+    
+		<h3>Setting up the "Hi-Lo" game.</h3>
+        <p>Please select the top number for your game. A random number from 1 to the number you selected will be used for your game.</p>
+        
+        <p>
+        	<label for="topNumber">Choose: </label>
+            <select id="topNumber" onChange="getTargetNumber()">
+            	<option value="">Choose a number</option>
+            </select>
+      	</p>
+        
+                
+	</section>
+    
+    <section class="floatLeft">
+    
+        <h3>Playing the &quot;Hi-Lo&quot; game.</h3>
+		<p>Use the following form to play the game.</p> 
+        
+        <form id="form">
+        
+        	<p>
+        	<label for="inputNumber">Your guess: </label>
+            <input id="inputNumber" name="inputNumber">
+        	</p>
+            
+            <p>
+            <input type="button" value="Guess?" onClick="hiLowGame()">
+            <input type="reset" onClick="getTargetNumber(); confetti.stop(); pauseAudio();">
+            <span id="outResults"></span> <!-- results go here -->
+            </p>
+
+        </form>
+
+		<p>Some script is already provided for you. Your assignment is to finish the game. You are welcome to add or modify as needed to complete the assignment. </p>
+        
+	</section>
+    
+	<div class="clearFloat"></div>
+    
+	<footer>
+		<p>Copyright &copy;2020 jhgullion.com. All rights reserved.</p>
+	</footer>
+    
+    
+    
+    
+    </div>
+
+</body>
+</html>
